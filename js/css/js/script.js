@@ -83,15 +83,19 @@ function play(e){
 
     for(let i = 1; i <= squareNmr; i++ ){
         const  square = drawSquare(i,squareRow );
+        const contentSquare = square.innerText;
+        
         square.addEventListener('click', function(){
-            square.classList.add('safe');
-
-    const contentSquare = document.getElementsByName(square).innerText;
-    console.log(contentSquare);
+            
+            if (contentSquare === bombs[i]){
+                square.classList.add('unsafe');
+            } else{
+                square.classList.add('safe');
+            }
+            console.log(contentSquare);
 
         })
         playground.appendChild(square);
-        
     }
 
 }
