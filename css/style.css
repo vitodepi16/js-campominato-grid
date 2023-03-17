@@ -32,3 +32,8 @@ main{
     background-color: blue;
     color: white;
 }
+
+.unsafe{
+    background-color: red;
+    color: white;
+}
