@@ -83,13 +83,14 @@ function play(e){
 
     for(let i = 1; i <= squareNmr; i++ ){
         const  square = drawSquare(i,squareRow );
-        const contentSquare = square.innerText;
-        
+        const contentSquare = parseInt(square.innerText);
+  
         square.addEventListener('click', function(){
             
-            if (contentSquare === bombs[i]){
+            if (bombs.includes(contentSquare)){
                 square.classList.add('unsafe');
-            } else{
+                
+            } else {
                 square.classList.add('safe');
             }
             console.log(contentSquare);
@@ -97,5 +98,6 @@ function play(e){
         })
         playground.appendChild(square);
     }
+
 
 }
