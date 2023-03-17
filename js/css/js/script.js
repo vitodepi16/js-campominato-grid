@@ -85,7 +85,7 @@ function play(e){
         square.addEventListener('click', function(){
             square.classList.add('safe');
         })
-        
         playground.appendChild(square);
+        
     }
 }
