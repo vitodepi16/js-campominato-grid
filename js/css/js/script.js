@@ -12,13 +12,14 @@ const formLevel = document.getElementById('formLevel');
 formLevel.addEventListener('submit', play);
 
 
+
 //  FUNZIONE PER CREARE CELLE
 
 
 function drawSquare(index, numSquare ){
     const square = document.createElement('div');
     square.classList.add('square');
-    square.style.width = `calc(100 / ${numSquare}) `
+    square.style.width = `calc(100% / ${numSquare}) `
     square.style.height = square.style.width;
     square.innerHTML = index;
     return square;
@@ -27,28 +28,31 @@ function drawSquare(index, numSquare ){
 
 //  FUNZIONE PER GENERARE L'ARRAY DELLE BOMBE
 
-function generateBombs(bombnum, numSquare){
+function generateBombs(numBomb, numSquare){
     const bombs = [];
-    while (bombs.length <= 16){
+    while (bombs.length < numBomb){
        const bomb =  getRndNumber(1, numSquare);
-       if (bombs.includes(bomb)){
+       if (bombs.indexOf(bomb) === -1){
         bombs.push(bomb);
        }
     } 
     return bombs;
+
 }
+
 
 
 
 //  FUNZIONE PER FAR PARTIRE IL GIOCO
 function play(e){
     e.preventDefault();
+    const NUM_BOMBS = 16;
     const playground = document.getElementById('playground');
     playground.innerHTML = ' ';
     const numBombs = 16;
     //  selezione livello 
     const level = document.getElementById('level').value;
-    console.log(level);
+ 
     let squareNmr;
    
     switch(level){
@@ -63,26 +67,25 @@ function play(e){
                 break;
         
     };
-    console.log(squareNmr);
-
     
     // celle per lato
 
 
     let squareRow =  Math.sqrt(squareNmr);
-   console.log(squareRow);
 
-   const bombs = generateBombs(numBombs, squareNmr);
-
+     const bombs = generateBombs(NUM_BOMBS , squareNmr);
+     console.log(bombs);
 
 
     // num celle creo la cella con funzione drawSquare
+
+
     for(let i = 1; i <= squareNmr; i++ ){
         const  square = drawSquare(i,squareRow );
         square.addEventListener('click', function(){
             square.classList.add('safe');
         })
-
+        
         playground.appendChild(square);
     }
 }
