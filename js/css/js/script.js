@@ -26,6 +26,7 @@ function drawSquare(index, numSquare ){
 
 }
 
+
 //  FUNZIONE PER GENERARE L'ARRAY DELLE BOMBE
 
 function generateBombs(numBomb, numSquare){
@@ -84,8 +85,13 @@ function play(e){
         const  square = drawSquare(i,squareRow );
         square.addEventListener('click', function(){
             square.classList.add('safe');
+
+    const contentSquare = document.getElementsByName(square).innerText;
+    console.log(contentSquare);
+
         })
         playground.appendChild(square);
         
     }
+
 }
