@@ -10,9 +10,20 @@ hard 49 quadrati
 
 const formLevel = document.getElementById('formLevel');
 formLevel.addEventListener('submit', play);
+var counterVal = 0;
 
+function incrementClick() {
+    updateDisplay(++counterVal);
+}
 
+function resetCounter() {
+    counterVal = 0;
+    updateDisplay(counterVal);
+}
 
+function updateDisplay(val) {
+    document.getElementById("counter-label").innerHTML = val;
+}
 //  FUNZIONE PER CREARE CELLE
 
 
@@ -89,6 +100,7 @@ function play(e){
             
             if (bombs.includes(contentSquare)){
                 square.classList.add('unsafe');
+                alert('Hai cliccato su una bomba, HAI PERSO !!');
                 
             } else {
                 square.classList.add('safe');
@@ -98,6 +110,7 @@ function play(e){
         })
         playground.appendChild(square);
     }
+
 
 
 }
