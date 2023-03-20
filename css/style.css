@@ -5,7 +5,7 @@
 }
 header , footer{
     background-color: white;
-    height: 70px;
+    height: 80px;
 }
 
 main{
@@ -16,16 +16,17 @@ main{
 #playground{
     width: 500px;
     height: 500px;
-    border: 1px solid black;
+    
     display: flex;
     flex-flow: row wrap;
 }
 .square{
-
+    
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(198, 197, 197);
 }
 
 .safe{
